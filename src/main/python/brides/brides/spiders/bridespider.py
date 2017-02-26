@@ -16,10 +16,7 @@ class BrideSpider(SitemapSpider):
     def parse_story(self, response):
         script_texts = response.xpath("//script[@type='application/ld+json']/text()").extract()
         for script_text in script_texts:
-            #item = BridesItem()
-            #item['text'] = self.parse_script_text(script_text)
             self.body_to_file(self.parse_script_text(script_text))
-            #yield item
 
     def parse(self, response):
         pass
